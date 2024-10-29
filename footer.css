@@ -1,0 +1,73 @@
+footer {
+    border-top: 1px solid rgb(143, 142, 142);
+    margin-top: 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+.footer-column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.footer-column h3 {
+    font-size: 1.4em;
+    margin-bottom: 0.625rem;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8rem;
+}
+
+.footer-column a:hover {
+    color: #09f;
+    text-decoration: underline;
+}
+
+.footer-column p {
+    line-height: 1.4;
+    text-align: left;
+    font-size: 0.8rem;
+}
+
+.footer-container .footer-introduce i {
+    font-size: 0.6rem;
+}
+
+#inner-icon-facebook {
+    color: #09f;
+}
+
+#inner-icon-youtobe {
+    color: red;
+}
+
+#inner-icon-twitter {
+    color: #000;
+}
+
+#inner-icon-instagram {
+    background: radial-gradient(circle at 30% 110%,
+            #ffdb8b 0%,
+            #ee653d 25%,
+            #d42e81 50%,
+            #a237b6 75%,
+            #3e57bc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-column i {
+    font-size: 1.6em;
+    color: #333;
+    margin-right: 10px;
+    cursor: pointer;
+}

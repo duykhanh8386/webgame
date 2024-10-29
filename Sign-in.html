@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register | Beta Cinema Style</title>
+    <link rel="stylesheet" href="Sign-in.css">
+    <script src="Sign-in.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="Login">
+        <span><a href="" class="dangKy">Đăng ký</a></span> | <span><a href="" class="dangNhap">Đăng nhập</a></span>
+    </div>
+
+    <header>
+        <a href="index.html"><img class="header_img" src="/img/Logo_Standard-Color-PNG.webp" alt="Ảnh Logo"></a>
+        <select class="header-select" name="select" id="select">
+            <option value="Beta HN">Group3 Bắc Ninh</option>
+            <option value="Beta TN">Group3 Thái Bình</option>
+            <option value="Beta ĐN">Group3 Hải Phòng</option>
+            <option value="Beta TB">Group3 Nghệ An</option>
+            <option value="Beta KH">Group3 Hà Tĩnh</option>
+        </select>
+        <div class="header_menu">
+            <div class="menu_item"><a href="index1.html">LỊCH CHIẾU THEO RẠP</a></div>
+            <div class="menu_item"><a href="phimdangchieu.html">PHIM</a></div>
+            <div class="menu_item"><a href="Rap_final.html">RẠP</a></div>
+            <div class="menu_item"><a href="GiaVe.html">GIÁ VÉ</a></div>
+            <div class="menu_item"><a href="tintuc.html">TIN MỚI VÀ ƯU ĐÃI</a></div>
+            <div class="menu_item"><a href="Sign-in.html">THÀNH VIÊN</a></div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div class="inner-container">
+
+            <div class="form-container" id="loginForm">
+                <h2>Đăng nhập</h2>
+                <form>
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+
+                    <label for="loginPassword">Mật khẩu</label>
+                    <input type="password" id="loginPassword" placeholder="Mật khẩu" required>
+
+                    <p class="forgot-password"><span onclick="toggleForms('forgotPasswordForm')">Quên mật khẩu?</span></p>
+                    
+                    <button type="submit">Đăng nhập</button>
+                    <p>Bạn chưa có tài khoản? <span onclick="toggleForms('registerForm')">Đăng ký ngay</span></p>
+                </form>
+            </div>
+
+            <div class="form-container hidden" id="registerForm">
+                <h2>Đăng ký</h2>
+                <form>
+                    <div class="row">
+                        <div class="column">
+                            <label for="fullName">Tên đầy đủ</label>
+                            <input type="text" id="fullName" placeholder="Tên đầy đủ" required>
+                        </div>
+                        <div class="column">
+                            <label for="phone">Số điện thoại</label>
+                            <input type="tel" id="phone" placeholder="Số điện thoại" required>
+                        </div>
+                    </div>
+
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+
+                    <div class="row">
+                        <div class="column">
+                            <label for="registerPassword">Mật khẩu</label>
+                            <input type="password" id="registerPassword" placeholder="Mật khẩu" required>
+                        </div>
+                        <div class="column">
+                            <label for="confirmPassword">Xác nhận mật khẩu</label>
+                            <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="column">
+                            <label for="birthDate">Ngày sinh</label>
+                            <input type="date" id="birthDate" required>
+                        </div>
+                        <div class="column">
+                            <label for="gender">Giới tính</label>
+                            <select id="gender" required>
+                                <option value="" disabled selected>Chọn giới tính</option>
+                                <option value="male">Nam</option>
+                                <option value="female">Nữ</option>
+                                <option value="other">Khác</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="column" class="column-commitment">
+                            <p class="commitment"><input type="checkbox" class="box">Tôi cam kết tuân theo <a class="commitment-content" href="">chính sách bảo mật</a> và <a class="commitment-content" href="">điều khoản sử dụng</a> của Group3_Cinemas.</p>
+                        </div>
+                    </div>
+                    <button type="submit" onclick="toggleForms('otpForm')">Đăng ký</button>
+                    <p>Bạn đã có tài khoản? <span onclick="toggleForms('loginForm')">Đăng nhập ngay</span></p>
+                </form>
+            </div>
+
+
+            <div class="form-container hidden" id="forgotPasswordForm">
+                <h2>Quên mật khẩu</h2>
+                <form>
+                    <label for="forgotEmail">Email</label>
+                    <input type="email" id="forgotEmail" placeholder="Nhập email của bạn" required>
+
+                    <button type="submit" onclick="toggleForms('otpForm')">Gửi mã xác thực</button>
+                    <p><span onclick="toggleForms('loginForm')">Quay lại đăng nhập</span></p>
+                </form>
+            </div>
+
+            <div class="form-container hidden" id="otpForm">
+                <h2>Mã xác thực</h2>
+                <form>
+                    <label for="otpCode">Nhập mã OTP</label>
+                    <input type="number" id="otpCode" placeholder="Nhập mã OTP" required>
+
+                    <button type="submit">Xác nhận</button>
+                    <p><span onclick="toggleForms('registerForm')">Quay lại đăng kí</span></p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column footer-introduce">
+                <h3>Group3 Việt Nam</h3>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Giới thiệu</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Tiện Ích Online</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Thẻ Quà Tặng</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Tuyển Dụng</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Liên Hệ Quảng Cáo Group3</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Dành cho đối tác</a></div>
+            </div>
+            
+            <div class="footer-column footer-introduce">
+                <h3>Điều khoản sử dụng</h3>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Điều Khoản Chung</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Điều Khoản Giao Dịch</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Chính Sách Thanh Toán</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Chính Sách Bảo Mật</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Câu Hỏi Thường Gặp</a></div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <i id="inner-icon-facebook" class="fa-brands fa-square-facebook"></i>
+                <i id="inner-icon-youtobe" class="fa-brands fa-square-youtube"></i>
+                <i id="inner-icon-instagram" class="fa-brands fa-square-instagram"></i>
+                <i id="inner-icon-twitter" class="fa-brands fa-square-x-twitter"></i>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Chăm sóc khách hàng</h3>
+                <p>
+                    Hotline: 1900 6017<br>
+                    Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày<br>
+                    bao gồm cả Lễ Tết)<br>
+                    Email hỗ trợ: hoidap@group3.vn
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

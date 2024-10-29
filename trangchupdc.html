@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="phimdc.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="slidebar.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="Login">
+        <span><a href="Sign-in.html" class="dangKy">Đăng ký</a></span> | <span><a href="Sign-in.html"
+                class="dangNhap">Đăng nhập</a></span>
+    </div>
+
+    <header>
+        <a href="index.html"><img class="header_img" src="/img/LogoWeb.webp" alt="Ảnh Logo"></a>
+        <select class="header-select" name="select" id="select">
+            <option value="G3HN">Group3 Hà Nội</option>
+            <option value="G3TN">Group3 Thái Nguyên</option>
+            <option value="G3TH">Group3 Thanh Hóa</option>
+            <option value="G3LC">Group3 Lào Cai</option>
+            <option value="G3BG">Group3 Bắc Giang</option>
+            <option value="G3NT">Group3 Nha Trang</option>
+        </select>
+        <div class="header_menu">
+            <div class="header_menu">
+                <div class="menu_item"><a href="index1.html">LỊCH CHIẾU THEO RẠP</a></div>
+                <div class="menu_item"><a href="phimdangchieu.html">PHIM</a></div>
+                <div class="menu_item"><a href="Rap_final.html">RẠP</a></div>
+                <div class="menu_item"><a href="GiaVe.html">GIÁ VÉ</a></div>
+                <div class="menu_item"><a href="tintuc.html">TIN MỚI VÀ ƯU ĐÃI</a></div>
+                <!-- <div class="menu_item"><a href="">NHƯỢNG QUYỀN</a></div> -->
+                <div class="menu_item"><a href="Sign-in.html">THÀNH VIÊN</a></div>
+            </div>
+        </div>
+    </header>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img
+                    src="https://files.betacorp.vn/media/images/2024/10/23/z5959426229506-c7d3539d88024f520ccb323596167a36-145928-231024-88.jpg"
+                    alt="Image 1"></div>
+            <div class="slide"><img
+                    src="https://files.betacorp.vn/media/images/2024/10/22/ctkm-xem-quy-xem-nom-1702-x-621-172507-221024-34.png"
+                    alt="Image 2"></div>
+            <div class="slide"><img
+                    src="https://files.betacorp.vn/media/images/2024/10/10/le-hoi-doi-ma-1702-x-621-170901-101024-19.png"
+                    alt="Image 3"></div>
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        let slideInterval;
+
+        // Hiển thị slide hiện tại
+        function showSlide(index) {
+            const slides = document.querySelectorAll(".slide");
+            const dots = document.querySelectorAll(".dot");
+
+            if (index >= slides.length) currentIndex = 0;
+            if (index < 0) currentIndex = slides.length - 1;
+
+            slides.forEach((slide, i) => {
+                slide.style.display = i === currentIndex ? "block" : "none";
+            });
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === currentIndex);
+            });
+        }
+
+        // Chuyển slide
+        function changeSlide(n) {
+            resetInterval(); // Reset lại thời gian tự động chuyển slide
+            showSlide(currentIndex += n);
+        }
+
+        // Chuyển đến slide theo chấm tròn
+        function currentSlide(n) {
+            resetInterval(); // Reset lại thời gian tự động chuyển slide
+            showSlide(currentIndex = n - 1);
+        }
+
+        // Tự động chuyển slide mỗi 3 giây
+        function autoSlide() {
+            slideInterval = setInterval(() => {
+                showSlide(currentIndex += 1);
+            }, 3000); // 3000 ms = 3 giây
+        }
+
+        // Reset lại thời gian tự động chuyển slide khi người dùng tương tác
+        function resetInterval() {
+            clearInterval(slideInterval);
+            autoSlide(); // Bắt đầu lại tự động chuyển slide
+        }
+
+        // Khởi động
+        showSlide(currentIndex);
+        autoSlide(); // Bắt đầu tự động chuyển slide
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <div id="main">
+        <div id="tren">
+            <h2 class="sapchieu"><a href="trangchupsc.html">PHIM SẮP CHIẾU</a></h2>
+            <h2 class="dangchieu"><a href="trangchupdc.html">PHIM ĐANG CHIẾU</a></h2>
+            <h2 class="dacbiet"><a href="index.html">SUẤT CHIẾU ĐẶC BIỆT</a></h2>
+        </div>
+        <div class="container">
+            <div id="duoi">
+
+                <div class="box">
+                    <div class="anh">
+                        <img src="/img/1.png" class="phim">
+                    </div>
+                    <div class="chu">
+                        <h3 class="inner-content" style="color:deepskyblue;">Venom: Kèo Cuối</h3>
+                        <p><b>Thể loại: </b>Khoa học, Viễn tưởng</p>
+                        <p><b>Thời lượng: </b>109 phút</p>
+                    </div>
+                    <div class="hop">
+                        <h3>Mua vé</h3>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="anh">
+                        <img src="/img/2.png" class="phim">
+                    </div>
+                    <div class="chu">
+                        <h3 class="inner-content" style="color:deepskyblue;">Thần Dược</h3>
+                        <p><b>Thể loại: </b>Kinh dị, Tâm lý</p>
+                        <p><b>Thời lượng: </b>138 phút</p>
+                    </div>
+                    <div class="hop">
+                        <h3>Mua vé</h3>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="anh">
+                        <img src="/img/3.png" class="phim">
+                    </div>
+                    <div class="chu">
+                        <h3 class="inner-content" style="color:deepskyblue;">Ác Quỷ Truy Hồn</h3>
+                        <p><b>Thể loại: </b>Kinh dị</p>
+                        <p><b>Thời lượng: </b>107 phút</p>
+                    </div>
+                    <div class="hop">
+                        <h3>Mua vé</h3>
+                    </div>
+                </div>
+
+                <div class="box four-child">
+                    <div class="anh">
+                        <img src="/img/4.png" class="phim">
+                    </div>
+                    <div class="chu">
+                        <h3 class="inner-content" style="color:deepskyblue;">Cô Dâu Hào Môn</h3>
+                        <p><b>Thể loại: </b>Tâm lý</p>
+                        <p><b>Thời lượng: </b>114 phút</p>
+                    </div>
+                    <div class="hop">
+                        <h3>Mua vé</h3>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="anh">
+                        <img src="/img/5.jpg" class="phim">
+                    </div>
+                    <div class="chu">
+                        <h3 class="inner-content" style="color:deepskyblue;">Tê Yod: Qủy Ăn Tạng Phần 2</h3>
+                        <p><b>Thể loại: </b>Kinh dị</p>
+                        <p><b>Thời lượng: </b>111 phút</p>
+                    </div>
+                    <div class="hop">
+                        <h3>Mua vé</h3>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="anh">
+                        <img src="/img/6.png" class="phim">
+                    </div>
+                    <div class="chu">
+                        <h3 class="inner-content" style="color:deepskyblue;">Ngày Xưa Có Một Chuyện Tình</h3>
+                        <p><b>Thể loại: </b>Tình cảm</p>
+                        <p><b>Thời lượng: </b>135 phút</p>
+                    </div>
+                    <div class="hop">
+                        <h3>Mua vé</h3>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="anh">
+                        <img src="/img/7.png" class="phim">
+                    </div>
+                    <div class="chu">
+                        <h3 class="inner-content" style="color:deepskyblue;">Elli Và Bí Ẩn Chiếc Tàu Ma</h3>
+                        <p><b>Thể loại: </b>Gia đình, Hoạt hình</p>
+                        <p><b>Thời lượng: </b>87 phút</p>
+                    </div>
+                    <div class="hop">
+                        <h3>Mua vé</h3>
+                    </div>
+                </div>
+
+                <div class="box last-child">
+                    <div class="anh">
+                        <img src="/img/8.png" class="phim">
+                    </div>
+                    <div class="chu">
+                        <h3 class="inner-content" style="color:deepskyblue;">Robot Hoang Dã</h3>
+                        <p><b>Thể loại: </b>Phưu lưu, Hoạt hình</p>
+                        <p><b>Thời lượng: </b>102 phút</p>
+                    </div>
+                    <div class="hop">
+                        <h3>Mua vé</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column footer-introduce">
+                <h3>Group3 Việt Nam</h3>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Giới thiệu</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Tiện Ích Online</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Thẻ Quà Tặng</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Tuyển Dụng</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Liên Hệ Quảng Cáo Group3</a>
+                </div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Dành cho đối tác</a></div>
+            </div>
+
+            <div class="footer-column footer-introduce">
+                <h3>Điều khoản sử dụng</h3>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Điều Khoản Chung</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Điều Khoản Giao Dịch</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Chính Sách Thanh Toán</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Chính Sách Bảo Mật</a></div>
+                <div><i class="fa-solid fa-arrow-right"></i><a href="#" target="_self">Câu Hỏi Thường Gặp</a></div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <i id="inner-icon-facebook" class="fa-brands fa-square-facebook"></i>
+                <i id="inner-icon-youtobe" class="fa-brands fa-square-youtube"></i>
+                <i id="inner-icon-instagram" class="fa-brands fa-square-instagram"></i>
+                <i id="inner-icon-twitter" class="fa-brands fa-square-x-twitter"></i>
+            </div>
+
+            <div class="footer-column">
+                <h3>Chăm sóc khách hàng</h3>
+                <p>
+                    Hotline: 1900 6017<br>
+                    Giờ làm việc: 8:00 - 22:00 (Tất cả các ngày<br>
+                    bao gồm cả Lễ Tết)<br>
+                    Email hỗ trợ: hoidap@group3.vn
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

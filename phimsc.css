@@ -1,0 +1,89 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#tren {
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    padding-top: 30px;
+}
+
+.sapchieu {
+    text-align: right;
+}
+
+.sapchieu>a {
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+.dangchieu {
+    text-align: center;
+}
+
+.dacbiet {
+    text-align: left;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.inner-content {
+    margin-top: 8px;
+    margin-bottom: 14px;
+}
+
+.chu p {
+    margin: 2px 0;
+}
+
+#duoi {
+    width: 80%;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.box {
+    border: 1px solid white;
+    width: 22%;
+    margin-top: 20px;
+    margin-right: 15px;
+    display: grid;
+    padding-top: 10px;
+}
+
+.four-child,
+.last-child {
+    margin-right: 0px;
+}
+
+.anh {
+    width: 100%;
+    margin-top: 5px;
+    text-align: center;
+    object-fit: cover;
+}
+
+.phim {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.chu {
+    text-align: left;
+    font-size: 16px;
+}
+
+#tren>h2>a:hover {
+    color: red;
+}
+
+#tren>h2>a {
+    text-decoration: none;
+}
